@@ -13,8 +13,8 @@
   --como-bg-size:     cover;
 
   /* Steps / list section (Group 9) */
-  --steps-bg-size: 48% auto;
-  --steps-bg-position: -2% center;
+  --steps-bg-size: 52% auto;
+  --steps-bg-position: -20% 10%;
   --steps-bg-repeat: no-repeat;
 
   /* Steps text position — tweak this to slide the text block left/right */
@@ -32,7 +32,7 @@
   position: relative;
   align-self: stretch;
   width: 100%;
-  background-image: url("pics/Group%209.png");
+  background-image: image-set(url("pics/steps-1440.webp") type("image/webp"), url("pics/Group%209.png") type("image/png"));
   background-size: var(--steps-bg-size);
   background-position: var(--steps-bg-position);
   background-repeat: var(--steps-bg-repeat);
@@ -43,7 +43,7 @@
   min-height: 100svh;
   gap: 10px;
   background-image: linear-gradient(0deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05)),
-    url("pics/Group%204%20(12).png");
+    image-set(url("pics/hero-1440.webp") type("image/webp"), url("pics/Group%204%20(12).png") type("image/png"));
   background-size: var(--hero-bg-size);
   background-position: var(--hero-bg-position);
   will-change: transform;
@@ -103,6 +103,8 @@
   position: relative;
   flex: 0 0 auto;
   cursor: pointer;
+  outline: none;
+  border: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -114,6 +116,7 @@
 .desktop .button-primary:active {
   transform: scale(1.03);
 }
+
 
 .desktop .bullet {
   position: relative;
@@ -175,7 +178,7 @@
   font-size: clamp(2rem, 5vw, 64px);
   line-height: 1.1;
   letter-spacing: -1px;
-  color: #000000;
+  color: var(--textbody-1);
   text-align: center;
   margin: 0;
 }
@@ -203,7 +206,7 @@
   position: relative;
   align-self: stretch;
   width: 100%;
-  background-image: url("pics/Group%209.png");
+  background-image: image-set(url("pics/steps-1440.webp") type("image/webp"), url("pics/Group%209.png") type("image/png"));
   background-size: var(--steps-bg-size);
   background-position: var(--steps-bg-position);
   will-change: transform;
@@ -233,6 +236,363 @@
   line-height: var(--heading-3-line-height);
   font-style: var(--heading-3-font-style);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   LANDING PAGE SECTIONS
+   ═══════════════════════════════════════════════════════════ */
+
+.lp-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.lp-eyebrow {
+  font-family: var(--button-text-font-family);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--textheadline-2);
+  margin: 0 0 16px;
+}
+
+.lp-eyebrow--light { color: var(--textheadline-1); }
+
+.lp-heading {
+  font-family: var(--heading-1-mari-font-family);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  line-height: 1.1;
+  color: var(--textbody-1);
+  margin: 0 0 20px;
+}
+
+.lp-heading--light { color: #fff; }
+
+.lp-subheading {
+  font-family: var(--heading-3-font-family);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--textparagraph-1);
+  opacity: 0.75;
+  margin: 0 0 48px;
+  max-width: 620px;
+}
+
+.lp-subheading--light { color: #fff; opacity: 0.8; }
+
+.lp-body {
+  font-family: var(--heading-3-font-family);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--textparagraph-1);
+  opacity: 0.8;
+  margin: 0 0 28px;
+  max-width: 680px;
+}
+
+/* ── Sección A — Problema ── */
+.lp-problem {
+  background: var(--backgroundbackground-1);
+  padding: 100px 0;
+}
+
+.lp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+}
+
+.lp-bullets li {
+  font-family: var(--heading-3-font-family);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--textparagraph-1);
+  padding-left: 24px;
+  position: relative;
+}
+
+.lp-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--textheadline-2);
+}
+
+/* ── Sección B — Features ── */
+.lp-features {
+  background: #fff;
+  padding: 100px 0;
+}
+
+.lp-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(0,0,0,0.08);
+}
+
+.lp-card {
+  background: #fff;
+  padding: 36px 28px;
+}
+
+.lp-card__num {
+  display: block;
+  font-family: var(--button-text-font-family);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--textheadline-2);
+  margin-bottom: 16px;
+}
+
+.lp-card__title {
+  font-family: var(--heading-1-mari-font-family);
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--textbody-1);
+  margin: 0 0 12px;
+}
+
+.lp-card__body {
+  font-family: var(--heading-3-font-family);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--textparagraph-1);
+  margin: 0 0 10px;
+}
+
+.lp-card__support {
+  font-family: var(--button-text-font-family);
+  font-size: 0.8rem;
+  color: var(--textheadline-2);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ── Sección C — Métricas ── */
+.lp-metrics {
+  background: var(--textheadline-2);
+  padding: 100px 0;
+}
+
+.lp-metrics__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.lp-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lp-metric__num {
+  font-family: var(--heading-1-mari-font-family);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--textheadline-1);
+  line-height: 1;
+}
+
+.lp-metric__label {
+  font-family: var(--button-text-font-family);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.lp-metric__desc {
+  font-family: var(--heading-3-font-family);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.75);
+  margin: 8px 0 0;
+}
+
+/* ── Sección D — Testimonios ── */
+.lp-testimonials {
+  background: var(--backgroundbackground-1);
+  padding: 100px 0;
+}
+
+.lp-testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.lp-testimonial {
+  border-left: 3px solid var(--textheadline-2);
+  padding: 28px 32px;
+  margin: 0;
+  background: #fff;
+}
+
+.lp-testimonial__quote {
+  font-family: var(--heading-3-font-family);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--textbody-1);
+  margin: 0 0 24px;
+}
+
+.lp-testimonial__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lp-testimonial__footer strong {
+  font-family: var(--button-text-font-family);
+  font-size: 0.85rem;
+  color: var(--textheadline-2);
+}
+
+.lp-testimonial__footer span {
+  font-family: var(--button-text-font-family);
+  font-size: 0.78rem;
+  color: rgba(0,0,0,0.45);
+}
+
+/* ── Sección E — Tecnología ── */
+.lp-tech {
+  background: #fff;
+  padding: 100px 0;
+}
+
+.lp-tech__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lp-tech__bullets li {
+  font-family: var(--heading-3-font-family);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--textparagraph-1);
+  padding-left: 24px;
+  position: relative;
+}
+
+.lp-tech__bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--textheadline-1);
+  outline: 2px solid var(--textheadline-2);
+}
+
+/* ── Sección F — Motor ── */
+.lp-engine {
+  background: var(--backgroundbackground-1);
+  padding: 100px 0;
+}
+
+.lp-engine__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.lp-engine__block {
+  border-top: 2px solid var(--textheadline-2);
+  padding-top: 24px;
+}
+
+.lp-engine__title {
+  font-family: var(--heading-1-mari-font-family);
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--textbody-1);
+  margin: 0 0 14px;
+}
+
+.lp-engine__desc {
+  font-family: var(--heading-3-font-family);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--textparagraph-1);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* ── Sección G — CTA final ── */
+.lp-cta-final {
+  background: var(--textheadline-2);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.lp-cta-final__heading {
+  font-family: var(--heading-1-mari-font-family);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: #fff;
+  margin: 0 auto 24px;
+  max-width: 800px;
+  line-height: 1.15;
+}
+
+.lp-cta-final__body {
+  font-family: var(--heading-3-font-family);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin: 0 auto 40px;
+  max-width: 640px;
+}
+
+.lp-cta-final__actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.lp-cta-final__reassurance {
+  font-family: var(--button-text-font-family);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+}
+
+/* ── Responsive landing sections ── */
+@media (max-width: 900px) {
+  .lp-cards { grid-template-columns: repeat(2, 1fr); }
+  .lp-metrics__grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-engine__grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+@media (max-width: 640px) {
+  .lp-problem, .lp-features, .lp-metrics, .lp-testimonials,
+  .lp-tech, .lp-engine, .lp-cta-final { padding: 64px 0; }
+  .lp-container { padding: 0 20px; }
+  .lp-cards { grid-template-columns: 1fr; }
+  .lp-metrics__grid { grid-template-columns: 1fr 1fr; }
+  .lp-testimonials__grid { grid-template-columns: 1fr; }
+}
+
+/* ─────────────────────────────────────────────────────────── */
 
 .desktop .footer {
   position: relative;
@@ -310,7 +670,11 @@
   line-height: var(--nav-link-line-height);
   white-space: nowrap;
   font-style: var(--nav-link-font-style);
+  transition: opacity 0.15s ease;
 }
+
+a.text-wrapper-2:hover,
+a.text-wrapper-2:focus-visible { opacity: 0.65; }
 
 .desktop .text-link {
   display: inline-flex;
@@ -319,12 +683,27 @@
   gap: 4px;
   position: relative;
   flex: 0 0 auto;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
 }
+
+.desktop .text-link:hover { opacity: 0.7; }
 
 .desktop .arrow {
   position: relative;
   align-self: stretch;
   width: 14px;
+}
+
+/* ── Mobile WebP sources ── */
+@media (max-width: 768px) {
+  .desktop .hero {
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05)),
+      image-set(url("pics/hero-768.webp") type("image/webp"), url("pics/Group%204%20(12).png") type("image/png"));
+  }
+  .desktop .footer-with-bag {
+    background-image: image-set(url("pics/steps-768.webp") type("image/webp"), url("pics/Group%209.png") type("image/png"));
+  }
 }
 
 /* ── Tablet (≤ 768px) ── */
